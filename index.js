@@ -1,7 +1,7 @@
 var vz = {
 	init : function () {
-    vz.showLastModified();
-//    vz.showOut();
+            vz.showLastModified();
+            vz.showOut();
 	},
 	showLastModified : function () {
 		document.querySelector("footer span").innerHTML = document.lastModified;		
