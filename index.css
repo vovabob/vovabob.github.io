@@ -1,0 +1,45 @@
+@media screen and (min-width: 1200px) { 
+  body {width: 960px;}
+  footer span::after {content: "min-width:1200px"; padding-left: 1em; color: darkred;}
+}
+
+body {
+	margin: 0;
+}
+
+#div-root {
+//	display: flex;
+
+}
+
+nav {
+	width: 15%;
+	background-color: #eaeaea;
+}
+
+aside {
+	width: 15%;
+	background-color: #eaeaea;
+
+}
+
+main {
+	background-color: gainsboro;
+	width: 68%;
+}
+
+h1 {
+	margin: 0;
+	text-align: center;
+	font-size: 2em;
+	color: #5d8aa8; /* Air Force Blue */
+}
+
+footer {
+	text-align: center;
+	font-weight: bold;
+}
+
+hr {
+	width: 80%;
+}
