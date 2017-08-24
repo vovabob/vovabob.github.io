@@ -1,13 +1,13 @@
 var vz = {
 	init : function () {
             vz.showLastModified();
-            vz.showOut();
+//            vz.showTest();
 	},
 	showLastModified : function () {
 		document.querySelector("footer span").innerHTML = document.lastModified;		
 	},
-	showOut : function () {
-		document.querySelector("aside").innerHTML = "From 'index.js': using init...";
+	showTest : function () {
+		document.querySelector("aside").innerHTML = "index.js: init() calling showTest()...";
 	}	
 };
 
