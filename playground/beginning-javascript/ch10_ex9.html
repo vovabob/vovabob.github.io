@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>ch10: example 9</title>
+    <link rel="shortcut icon" href="about:blank">
+    <style>
+        .tabStrip {
+            background-color: #E4E2D5;
+            padding: 3px;
+            height: 22px;
+        }
+
+            .tabStrip div {
+                float: left;
+                font: 14px arial;
+                cursor: pointer;
+            }
+
+        .tabStrip-tab {
+            padding: 3px;
+        }
+
+        .tabStrip-tab-hover {
+            border: 1px solid #316AC5;
+            background-color: #C1D2EE;
+            padding: 2px;
+        }
+
+        .tabStrip-tab-click {
+            border: 1px solid #facc5a;
+            background-color: #f9e391;
+            padding: 2px;
+        }
+    </style>
+</head>
+<body>
+    <header>A functional, yet flawed, Tabs using the mouseover, mouseout, and click events.
+    </header>
+    <div class="tabStrip">
+        <!-- HTML "data" attributes -->
+        <div data-tab-number="0" class="tabStrip-tab">Tab 1</div>
+        <div data-tab-number="1" class="tabStrip-tab">Tab 2</div>
+        <div data-tab-number="2" class="tabStrip-tab">Tab 3</div>
+    </div>
+    <div id="output"></div>
+
+    <script>
+        var tabContainer = document.querySelector(".tabStrip");
+        
+        function handler(e) {
+            var target = e.target;
+            switch (e.type) {
+                case "mouseover":
+                    if (target.className == "tabStrip-tab") {
+                        target.className = "tabStrip-tab-hover";
+                    }
+                    break;
+                case "mouseout":
+                    if (target.className == "tabStrip-tab-hover") {
+                        target.className = "tabStrip-tab";
+                    }
+                    break;
+                case "click":
+                    if (target.className == "tabStrip-tab-hover") {
+                        target.className = "tabStrip-tab-click";
+                        var num = target.getAttribute("data-tab-number");
+
+                        showTab(num);
+                        resetOtherTabs(num);
+                    }
+                    break;
+            }
+        }
+
+        function showTab(num) {
+          var output = document.getElementById("output");
+          var text = "Output for Tab " + (parseInt(num)+1);
+          output.innerHTML = text;
+        }
+        
+        function resetOtherTabs(num) {
+          var tabs = document.querySelectorAll('div[data-tab-number]');
+          var i;
+          for (i = 0; i < tabs.length; i++) {
+            if (i != num) {
+              tabs[i].className = "tabStrip-tab";
+            } else {
+              tabs[i].className = "tabStrip-tab-click";
+            }
+          }
+        }
+
+        document.addEventListener("mouseover", handler);
+        document.addEventListener("mouseout", handler);
+        document.addEventListener("click", handler);
+    </script>
+</body>
+</html>
