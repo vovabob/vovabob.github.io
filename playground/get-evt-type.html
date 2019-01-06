@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Event.type Example</title>
+	<link rel="shortcut icon" href="about:blank">
+
+    <style>
+        .drop-zone {
+            width: 300px;
+            padding: 20px;
+            border: 2px dashed #000;
+            font-size: 2em;
+        }
+    </style>
+</head>
+
+<body>
+
+<p>Press any key or click the mouse to get the event type.</p>
+<p>Event Info: <span id="evtInfo" style="color:blue">-</span></p>
+
+<div id="dropZone" class="drop-zone">Drop Zone!</div>
+
+<script>
+// userful vars:
+var evtInfo = document.getElementById("evtInfo");
+var dropZone = document.getElementById("dropZone");
+var currEvent;
+
+function getEvtType(evt) {
+//  console.group();
+
+	currEvent = evt.type;
+	evtInfo.innerHTML = currEvent;
+//  console.log(currEvent);
+
+//  console.groupEnd();
+}
+
+function do_dragEnter(evt) {
+	currEvt = evt.type
+	evtInfo.innerHTML = currEvt;
+}
+// when a dragged element or text selection leaves a drop target
+function do_dragLeave(evt) {
+	currEvt = evt.type
+	evtInfo.innerHTML = currEvt;
+}
+
+//Keyboard events
+document.addEventListener("keypress", getEvtType, false); //[second]
+
+document.addEventListener("keydown", getEvtType, false); //first
+document.addEventListener("keyup", getEvtType, false); //third
+
+//Mouse events
+document.addEventListener("click", getEvtType, false); // third
+
+document.addEventListener("mousedown", getEvtType, false); //first
+document.addEventListener("mouseup", getEvtType, false); //second
+
+// DnD events
+dropZone.addEventListener("dragenter", do_dragEnter, false);
+dropZone.addEventListener("dragleave", do_dragLeave, false); 	
+
+</script>
+
+</body>
+</html>

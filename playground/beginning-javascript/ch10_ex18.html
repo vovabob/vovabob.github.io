@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Chapter 10: Example 18</title>
+    <link rel="shortcut icon" href="about:blank">    
+    <style>
+        .drop-zone {
+            width: 300px;
+            padding: 20px;
+            border: 2px dashed #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="dzone" class="drop-zone">Drop Zone!</div>
+    <div id="dstatus"></div>
+
+    <script>
+        // to attach the event listener
+        var dropZone = document.getElementById("dzone");
+        // to access the innerHTML property
+        var dropStatus = document.getElementById("dstatus");
+
+        function do_DragEnter(e) {
+            dropStatus.innerHTML = "'dragenter' event has fired!";
+        }
+        // when a dragged element or text selection leaves a drop target
+        function do_DragLeave(e) {
+			dropStatus.innerHTML = "";
+		}
+
+        dropZone.addEventListener("dragenter", do_DragEnter, false);
+        dropZone.addEventListener("dragleave", do_DragLeave, false);        
+    </script>
+</body>
+</html>
