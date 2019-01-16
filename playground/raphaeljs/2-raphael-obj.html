@@ -1,11 +1,10 @@
 <html>
     <head>
-        <title>Hello Dot</title>
+        <title>Using Raphael() constructor</title>
         <link rel="shortcut icon" href="about:blank">
         <style type="text/css">
           #container {
             background-color: beige;
-            width: 500px;
           }
         </style>
     </head>
@@ -13,11 +12,21 @@
         <div id="container"></div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
         <script>
-          
-var paper = Raphael("container", 400, 300);
-paper.color = "green";
-var dot = paper.circle(200, 150, 100).attr("fill", "#FF0000").attr("stroke", "#000099").attr("stroke-width", 3);
-        
+
+var set = Raphael(["container", 320, 200, {
+    type: "rect",
+    x: 10,
+    y: 10,
+    width: 25,
+    height: 25,
+    stroke: "#f00"
+}, {
+    type: "text",
+    x: 30,
+    y: 40,
+    text: "My Text"
+}]);
+
         </script>
     </body>
 </html>
