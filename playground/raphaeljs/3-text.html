@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>SVG Text</title>
+        <link rel="shortcut icon" href="about:blank">
+        <style type="text/css">
+          #svg1 {
+            background-color: beige;
+          }
+          #svg2 {
+            background-color: lightgray;
+          }          
+        </style>
+    </head>
+    <body>
+        <div id="svg1"></div>
+        <hr>
+        <div id="svg2"></div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+        <script>
+          
+var r1 = Raphael("svg1", 400, 300);
+var r2 = Raphael("svg2", 400, 300);
+var txt1 = "Don't worry, be happy!"
+var txt2 = "No pain, no gain."
+// x,y of the text's start
+var note1 = r1.text(100, 50, txt1).attr({
+"text-anchor": "start",
+"font-size": 20, //in pixels
+"font-family": "Courier",
+"fill": "#609080"
+});
+// background color of text is known as "fill"
+var note2 = r2.text(300, 50, txt2).attr({
+"text-anchor": "end",
+"font-size": 24, //in pixels
+"font-family": "Fixed",
+"fill": "#80BBaa"
+});
+
+
+        </script>
+    </body>
+</html>
