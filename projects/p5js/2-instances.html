@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<title>2-instances.html</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+
+<style>
+body {margin:0; padding:0;}
+canvas {border: 4px solid #73AD21;}
+#container {
+	box-sizing: border-box; 
+	display:flex; justify-content: space-around;
+	align-items: flex-start; 
+}
+.item {flex:1; display:flex; justify-content: center; background-color: yellow;}
+
+</style>
+
+</head>
+<body>
+
+<h1>Instance mode</h1>
+<div id="container">
+	<div id="div1" class="item"></div>
+	<div id="div2" class="item"></div>
+</div>
+
+</body>
+
+<script>
+	
+const s1 = (p) => {
+let x = 100; 
+let y = 100;
+
+p.setup = function() {
+	p.createCanvas(200, 200);
+};
+p.draw = function() {
+	p.background(0);
+	p.fill(255);
+	p.rect(x,y,50,50);
+};
+};
+
+const s2 = (p) => {
+let x = 200; 
+let y = 200;
+p.setup = function() {
+	p.createCanvas(400, 400);
+};
+p.draw = function() {
+	p.background(128);
+	p.fill("green");
+	p.ellipse(x,y,100,200);
+};
+};
+
+let d1 = new p5(s1,'div1');
+let d2 = new p5(s2,'div2');
+
+
+</script>
+</html>
