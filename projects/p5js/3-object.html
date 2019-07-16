@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<title>3-object.html</title>
+<meta charset="utf-8">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+
+<style>
+body {margin:0; padding:0;}
+canvas {display: block; border: 4px solid blue;}
+</style>
+
+</head>
+<body>
+
+<h1>3-object.html</h1>
+<div id="out"></div>
+<button type="button" name="btn" onclick="toggle()">Click me</button>
+</body>
+
+<script>
+	
+const s = (p) => {
+	p.fontSize = 40;
+	p.bgColor = 'green';
+	
+	p.setup = function() {
+		p.createCanvas(200, 200);
+	};
+	p.draw = function() {
+		p.background(p.bgColor);
+		p.fill('yellow');
+		p.textSize(p.fontSize);
+		p.textAlign(p.LEFT, p.TOP);
+		p.text("QQQ",50,50);
+	};
+};
+
+var obj = new p5(s,'div1');
+
+function toggle() {
+	if (obj.fontSize == 20) {
+		obj.fontSize = 40; obj.bgColor = 'green';
+	} else {
+		obj.fontSize = 20; obj.bgColor = 'blue';
+	}
+}
+
+</script>
+</html>
+
