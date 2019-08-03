@@ -1,16 +1,22 @@
 <html>
-  <body>
-    <script>
+<head>
+<script type="text/javascript">
+function foo(response) {
+  var meta = response.meta;
+  var data = response.data;
+  console.log(meta);
+  console.log(data);
+}
 
-        const response = await fetch('https://api.github.com/repos/:user/:repo/contents/');
-        const data = await response.json();
-        let htmlString = '<ul>';
-        for (let file of data) {
-          htmlString += `<li><a href="${file.path}">${file.name}</a></li>`;
-        }
-        htmlString += '</ul>';
-        document.getElementsByTagName('body')[0].innerHTML = htmlString;
+var script = document.createElement('script');
+script.src = 'https://api.github.com?callback=foo';
 
-    </script>
-  <body>
+document.getElementsByTagName('head')[0].appendChild(script);
+</script>
+</head>
+
+<body>
+  <h1>Git API: JSON-P Callbacks</h1>
+  <p>Open up your browser's console.</p>
+</body>
 </html>
