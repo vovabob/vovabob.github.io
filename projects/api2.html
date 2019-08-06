@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="" rel="stylesheet" />
+
+<script type="text/javascript">
+
+// we can also use an object literal as headers in init:
+const myInit = {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'text/plain'
+  },
+  mode: 'cors',
+  cache: 'default'
+};
+
+// we can also pass the init object in with the Request constructor:
+let myRequest = new Request('https://api.github.com/repos/vovabob/vovabob.github.io/contents/projects/p5js', myInit);  
+  
+  fetch(myRequest)
+    .then(response => response.json())
+    .then(data => {console.log(JSON.stringify(data))})
+    .catch(err => console.error(err))
+
+</script>
+
+</head>
+
+<body>
+  <h1>fetch() Git API, v1</h1>
+  <p>Open up your browser's console.</p>
+  <script src=""></script>
+</body>
+</html>
+
