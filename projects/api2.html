@@ -18,10 +18,30 @@ const myInit = {
 // we can also pass the init object in with the Request constructor:
 let myRequest = new Request('https://api.github.com/repos/vovabob/vovabob.github.io/contents/projects/p5js', myInit);  
   
-  fetch(myRequest)
-    .then(response => response.json())
-    .then(data => {console.log(JSON.stringify(data))})
-    .catch(err => console.error(err))
+    var myList = document.querySelector('ul');
+    fetch(myRequest)
+    .then(function(response) {
+      if (!response.ok) {
+        throw new Error("HTTP error, status = " + response.status);
+      }
+      return response.json();
+    })
+    .then(function(json) {
+      for(var i = 0; i < json.length; i++) {
+        var listItem = document.createElement('li');
+        listItem.innerHTML = '<strong>' + json.[i].name + '</strong>';
+        listItem.innerHTML +=' can be found in ' + json.[i].path + '.';
+        listItem.innerHTML +=' Size: <strong>£' + json.[i].size + '</strong>';
+        myList.appendChild(listItem);
+      }
+    })
+    .catch(function(error) {
+      var p = document.createElement('p');
+      p.appendChild(
+        document.createTextNode('Error: ' + error.message)
+      );
+      document.body.insertBefore(p, myList);
+    });
 
 </script>
 
@@ -29,6 +49,7 @@ let myRequest = new Request('https://api.github.com/repos/vovabob/vovabob.github
 
 <body>
   <h1>fetch() Git API, v1</h1>
+  <ul></ul>
   <p>Open up your browser's console.</p>
   <script src=""></script>
 </body>
