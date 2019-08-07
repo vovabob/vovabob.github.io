@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link href="" rel="stylesheet" />
+<script type="text/javascript">
+  fetch('https://api.github.com/repos/vovabob/vovabob.github.io/contents/projects/p5js')
+    .then(response => response.json())
+    .then(data => {console.log(data)})
+    .catch(err => console.error(err))
+</script>
+
+</head>
+
+<body>
+  <h1>fetch() Git API, v1</h1>
+  <p>Open up your browser's console.</p>
+  <script src=""></script>
+</body>
+</html>
+
