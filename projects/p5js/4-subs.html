@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<title>4-subs.html</title>
+<meta charset="utf-8">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+
+<style>
+body {margin:0; padding:0;}
+canvas {border: 4px solid #73AD21;}
+#container {
+	box-sizing: border-box; 
+	display:flex; justify-content: space-around;
+	align-items: flex-start; 
+}
+.item {flex:1; display:flex; justify-content: center; background-color: lightgray;}
+
+</style>
+
+</head>
+<body>
+
+<h1>4-subs.html</h1>
+<div id="container">
+	<div id="div1" class="item"></div>
+	<div id="div2" class="item"></div>
+</div>
+
+</body>
+
+<script>
+
+const superSetup = function(p) {
+    p.setup = function() {
+        p.createCanvas(400,300)
+    }
+}
+
+const sub1 = function(p) {
+    superSetup(p)
+    p.draw = function() {
+        p.background(50)
+        p.fill("blue")
+        p.rect(100,100,50,50)
+    }
+}
+
+const sub2 = function(p) {
+    superSetup(p)
+    p.draw = function() {
+        p.background(100)
+        p.fill("red")
+        p.rect(100,100,100,100)
+    }
+}
+
+let s1 = new p5(sub1, 'div1');
+let s2 = new p5(sub2, 'div2');
+
+</script>
+</html>

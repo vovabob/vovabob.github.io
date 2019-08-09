@@ -1,0 +1,41 @@
+<html>
+<head>
+  <title>8-events-and-sets.html</title>
+  <link rel="shortcut icon" href="about:blank">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+  <style type="text/css">
+    #svg {
+      /* "width" and "height" do NOT work for empty divs */
+      min-width: 400;
+      max-width: 600;
+      min-height: 400; 
+      background-color: beige;
+      margin: 24; 
+    }
+  </style>
+</head>
+<body>
+
+<div id="svg"></div>
+
+<script>
+var svg = new Raphael("svg");
+
+var square = svg.rect(300, 10, 150, 100).attr("fill", "steelblue");
+var circle = svg.circle(200, 110, 80).attr("fill", "yellow");
+var ellipse = svg.ellipse(100, 250, 80, 50).attr("fill", "orange");
+var set1 = svg.set();
+set1.push(square, circle, ellipse);
+var txt = svg.text(24, 24, "Object color: ").
+  attr({"text-anchor": "start", "font-size": "24"});
+  
+set1.mouseover(function(e) {
+  txt.attr("text", this.attr("fill"));
+}).mouseout(function(e) {
+  txt.attr("text", "Object color: ");
+});
+
+</script>
+
+</body>
+</html>

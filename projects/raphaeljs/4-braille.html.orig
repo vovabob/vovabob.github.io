@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Braille Generator</title>
+        <link rel="shortcut icon" href="about:blank">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+        <style type="text/css">
+          #svg {
+            background-color: beige;
+          }
+        </style>
+    </head>
+    <body>
+        <!-- type='text' is the DEFAULT type. -->
+        <input id="message" type="text" style="width: 200px" value="Raphael is great"/>
+        <input id="clickme" type="button" value="braille-ify" />
+        <div id="svg"></div>
+        
+        <script src="/js/braille.js"></script>       
+        
+	</body>
+</html>

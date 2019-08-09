@@ -1,0 +1,50 @@
+<html>
+<head>
+    <title>Braille Generator</title>
+    <link rel="shortcut icon" href="about:blank">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+    <style type="text/css">
+        #svg {
+        background-color: beige;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    
+var svg = Raphael(20, 20, 400, 400);
+
+// r = red
+var r1 = svg.rect(25, 25, 50, 50);
+var r2 = svg.circle(125, 50, 25);
+var r3 = svg.text(200, 50, "H").attr("font-size", "60px");
+
+// g = green
+var g1 = svg.rect(100, 100, 50, 50);
+var g2 = svg.circle(200, 125, 25);
+var g3 = svg.text(50, 125, "H").attr("font-size", "60px");
+
+// b = blue
+var b1 = svg.rect(175, 175, 50, 50);
+var b2 = svg.circle(50, 200, 25);
+var b3 = svg.text(125, 200, "?").attr("font-size", "60px");
+
+// 1) on 3 lines:
+var red_set = svg.set();
+red_set.push(r1, r2, r3);
+red_set.attr("fill", "red");
+
+// 2) on two lines:
+var green_set = svg.set(g1, g2, g3);
+green_set.attr("fill", "green");
+
+// 3) on one line!
+var blue_set = svg.set(b1, b2, b3).attr("fill", "blue");
+
+b3.attr("fill", "gray");
+
+</script>
+
+</body>
+</html>

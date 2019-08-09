@@ -1,0 +1,63 @@
+<html>
+<head>
+  <title>7-events-toggle.html</title>
+  <link rel="shortcut icon" href="about:blank">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+  <style type="text/css">
+    #svg {
+      /* "width" and "height" do NOT work for empty divs */
+      min-width: 400;
+      max-width: 600;
+      min-height: 400; 
+      background-color: beige;
+      margin: 24; 
+    }
+  </style>
+</head>
+<body>
+  
+<input id="btn" type="button" value="Hover ON" />
+<div id="svg"></div>
+
+<script>
+  
+var svg = Raphael("svg");
+var square = svg.rect(50, 50, 250, 250).attr("fill", "red");
+
+var hover_enabled = true;
+
+document.getElementById("btn").onclick = toggleHover;
+
+function toggleHover() {
+  if (hover_enabled) {
+    this.value = "Hover OFF";
+    hover_enabled = false;
+  } else {
+    this.value = "Hover ON";
+    hover_enabled = true;
+  }
+}
+
+var mover = function(e) {
+  if (!hover_enabled) {
+    return false;
+  }
+  this.attr("fill", "blue"); 
+  // below works too! 
+  // square.attr("fill", "blue");
+}
+
+var mout = function(e) {
+  if (!hover_enabled) {
+    return false;
+  }
+  this.attr("fill", "red");
+}
+
+// Must be AFTER mover() and mout() functions definitiosns!
+square.mouseover(mover).mouseout(mout);
+
+</script>
+
+</body>
+</html>

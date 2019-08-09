@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<title>01-mix (p5js)</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+
+<style>
+body {background-color: #609090;}
+canvas {
+  border: 8px solid #73AD21;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+</style>
+</head>
+
+<body>
+<h1>Mix p5.js with regular HTML, CSS and Javascript</h1>
+<div id='base-div'></div>
+<p id='x-label'></p>
+<p id='y-label'></p>
+<p>Move the mouse to see circles.</p>
+<button onclick="addCircle()">Add Circle!</button>
+</body>
+
+<script>
+function setup() {
+  var can = createCanvas(600,400);
+  can.parent('base-div');
+  background(48,96,96);
+}
+
+function draw() {
+  fill(255);
+  ellipse(mouseX, mouseY, 40, 40);
+  // call "normal" javascript from p5
+  updateLabels(mouseX, mouseY);	
+}
+
+function addCircle(){
+	// call p5 functions from "noraml" javascript
+	fill(random(256), random(256), random(256));
+	ellipse(random(width), random(height), 20, 20); 
+}
+
+function updateLabels(x, y){
+  document.getElementById('x-label').innerHTML = 'X: ' + x;
+  document.getElementById('y-label').innerHTML = 'Y: ' + y;
+}
+
+</script>
+</html>
+
