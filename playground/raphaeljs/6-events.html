@@ -1,0 +1,34 @@
+<html>
+<head>
+  <title>6-events.html</title>
+  <link rel="shortcut icon" href="about:blank">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+  <style type="text/css">
+    #svg {
+      /* "width" and "height" do NOT work for empty divs */
+      min-width: 400;
+      max-width: 600;
+      min-height: 400; 
+      background-color: beige;
+      margin: 24; 
+    }
+  </style>
+</head>
+<body>
+
+<div id="svg"></div>
+
+<script>
+
+var svg = Raphael("svg");
+var square = svg.rect(50, 50, 250, 250).attr("fill", "orange");
+square.mouseover(function(e) {
+  this.attr("fill", "blue");
+}).mouseout(function(e) {
+  this.attr("fill", "red");
+});
+
+</script>
+
+</body>
+</html>
