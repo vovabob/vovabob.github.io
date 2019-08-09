@@ -30,6 +30,7 @@ let myRequest = new Request('https://api.github.com/repos/vovabob/vovabob.github
       for(var i = 0; i < obj.length; i++) {
         var li = document.createElement('li');
         li.innerHTML +='<a href="' + obj[i].path + '">' + obj[i].path + '</a>';
+        li.innerHTML +='<a href="' + obj[i].name + '">' + obj[i].name + '</a>';        
         ul.appendChild(li);
       }
     })
