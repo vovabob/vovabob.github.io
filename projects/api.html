@@ -21,7 +21,7 @@ const myInit = {
 };
 
 // we can also pass the init object to the Request constructor:
-let myRequest = new Request('https://api.github.com/repos/vovabob/vovabob.github.io/contents/projects/p5', myInit);  
+let myRequest = new Request('https://api.github.com/repos/vovabob/vovabob.github.io/contents/projects/', myInit);  
   
     var ul = document.querySelector('ul');
     fetch(myRequest).then(function(response) {if (!response.ok) {throw new Error("HTTP error, status = " + response.status);} return response.json();})
