@@ -21,18 +21,16 @@ const myInit = {
 };
 
 // we can also pass the init object to the Request constructor:
-let myRequest = new Request('https://api.github.com/repos/vovabob/vovabob.github.io/contents/projects/p5js', myInit);  
+let myRequest = new Request('https://api.github.com/repos/vovabob/vovabob.github.io/contents/projects/p5', myInit);  
   
     var ul = document.querySelector('ul');
     fetch(myRequest).then(function(response) {if (!response.ok) {throw new Error("HTTP error, status = " + response.status);} return response.json();})
     // the previous Promise resolved by returning a JSON object
-    .then(function(json) {
-      for(var i = 0; i < json.length; i++) {
+    .then(function(obj) {
+      for(var i = 0; i < obj.length; i++) {
         var li = document.createElement('li');
-        li.innerHTML = '<strong>' + json[i].name + '</strong>';
-        li.innerHTML +=' , Path: ' + json[i].path + '.';
-        li.innerHTML +=' Size: <strong>£' + json[i].size + '</strong>';
-        ul.appendChild(listItem);
+        li.innerHTML +='<a href="' + obj[i].html_url + '">' + obj[i].path + '</a>';
+        ul.appendChild(li);
       }
     })
     .catch(function(error) {
