@@ -9,7 +9,7 @@ const myInit = {
 
 let myRequest = new Request('https://api.github.com/repos/vovabob/vovabob.github.io/contents/projects', myInit);  
   
-var ul = document.querySelector(".idx");
+var ul = document.querySelector("#idx");
 
 fetch(myRequest).then(function(response) {if (!response.ok) {throw new Error("fetch error! Status: " + response.status);} return response.json();})
 // the previous Promise resolved by returning a JSON object
