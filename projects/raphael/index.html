@@ -9,7 +9,8 @@
 	<h3>/projects/raphael/index.html (links are generated from JSON)</h3>
 	<ul id="idx"></ul>
 
-<script src="/js/auto-index.js">
+<script>
+	
 const myInit = {
   method: 'GET',
   headers: {
@@ -39,6 +40,7 @@ fetch(myRequest).then(function(response) {if (!response.ok) {throw new Error("fe
   );
   document.body.insertBefore(p, ul);
 });	
+
 </script>
 
 </body>
