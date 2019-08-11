@@ -35,6 +35,13 @@ h1 {
 	color: #5d8aa8; /* Air Force Blue */
 }
 
+#body-title {
+	margin: 0;
+	text-align: center;
+	font-size: 1.5em;
+	color: #5d8aa8; /* Air Force Blue */
+}
+
 footer {
 	text-align: center;
 	font-weight: bold;
