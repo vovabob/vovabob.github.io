@@ -9,7 +9,8 @@ html, body, main, section, div, p {margin:0; padding:0;}
 header {
 	background-color: lightblue;
 	text-align: center;
-	margin: auto 1rem;
+	margin: 0 1rem;
+	padding: 1rem;
 }
 
 nav {
@@ -46,4 +47,5 @@ footer {
 	background-color: #ece0d1;
 	text-align: center;
 	font-weight: bold;
+	padding: 1rem;
 }
