@@ -1,8 +1,8 @@
 var vz = {
-	init : function () {
+	init : () => {
             vz.showLastModified();
 	},
-	showLastModified : function () {
+	showLastModified : () => {
 		document.querySelector("footer span").innerHTML = document.lastModified;		
 	},
 	
@@ -21,8 +21,10 @@ let  ul = document.querySelector("#idx");
 let root = 'https://api.github.com/repos/vovabob/vovabob.github.io/contents';
 let myRequest = new Request(root + dir); 
 
-fetch(myRequest).then(function(response) {if (!response.ok) {throw new Error("fetch error! Status: " + response.status);} return response.json();})
-// the previous Promise resolved by returning a JSON object
+fetch(myRequest)
+.then(
+	(res) => {if (!res.ok) {throw new Error("fetch error! Status: " + res.status);} return res.json();
+})
 .then(function(obj) {
   for(var i = 0; i < obj.length; i++) {
 	var li = document.createElement('li');
@@ -30,11 +32,9 @@ fetch(myRequest).then(function(response) {if (!response.ok) {throw new Error("fe
 	ul.appendChild(li);
   }
 })
-.catch(function(error) {
+.catch( (e) => {
   var p = document.createElement('p');
-  p.appendChild(
-	document.createTextNode('Error: ' + error.message)
-  );
+  p.appendChild(document.createTextNode('Error: ' + e.message));
   document.body.insertBefore(p, ul);
 });
 
