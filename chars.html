@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+    <title>my.html</title>
+    <meta charset="utf-8">
+<!-- Remember to disable 'no-store' on production sites: -->
+    <meta http-equiv="Cache-Control" content="no-store">
+<!-- ------------------------------------------- -->        
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="chars.css">
+</head>
+<body>
+
+<header>
+    <nav id="navbar">
+        <a class="tab" id="viewTab">View</a>
+        <a class="tab" id="queryTab">Search</a>
+        <a class="tab" id="textTab">Text</a>
+    </nav>
+</header>
+
+<main>
+    <section id="view" class="sec">
+        <div id="panel">
+            <div id="char">谢</div>
+            <div id="pinyin"><p>pin1yin2</p></div>
+            <div id="trad">謝</div>                    
+            <div id="meaning"><p>Meaning; description.</p></div> 
+            <div id="btns">
+                <button id="prev">Prev</button> 
+                <button id="next">Next</button>                     
+                <button id="find-btn"> Find</button>                
+                <input id="find" size="2rem">
+            </div>
+            <div id="sels">
+                <select id="pinyin-sel" >pinyin</select>
+                <select id="meaning-sel">meaning</select>                
+            </div> 
+        </div>
+    </section>
+
+    <section id="query" class="sec" style="display:none">
+    <div id="wrap">
+        <div id="pinyin-qry">
+            <input id="pinyin-txt" size="10">
+            <button id="pinyin-btn"> ? </button>
+        </div>
+        <div id="meaning-qry">
+            <input id="meaning-txt" size="10">
+            <button id="meaning-btn"> ? </button>
+        </div>            
+        <div id="output"></div>
+    </div>
+    </section>
+
+    <section id="text" class="sec" style="display:none">
+        <button id="load-btn">Load </button>
+        <input id="file" size="15" >
+        <div id="show">
+            我爸爸是医生今年60岁他不爱喝水爱喝茶天气热的时候喝茶天气冷的时候也喝茶工作的时候喝茶看电影的时候喝茶坐出租车的时候喝茶打电话的时候喝茶吃饭的时候也喝茶他喜欢和他的朋友喝茶也喜欢一个人喝茶他太爱喝茶了天天都喝茶一天能喝不少茶我喝了茶不能睡觉他不喝茶不能睡觉有一天我们家没有茶了他一天都没睡觉他说他不能没有茶
+        </div>
+    </section>
+</main>
+
+<footer><p>Footer</p></footer>
+
+<script src="chars.js"></script>
+</body>
+</html> 
