@@ -83,3 +83,10 @@ a:active, a:hover {background-color: #fdf5e6; }
     padding: 0 0.4rem;
 }
 #meaning-sel {float:right; }
+
+@media (min-width: 41rem) {
+	body { 
+		width: 22rem;
+		margin:auto; 
+	}
+}
