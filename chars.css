@@ -1,13 +1,13 @@
 /* chars.css */
 
 html {box-sizing: border-box; }
-html, body, main, section, div, p {margin:0; padding:0;}
-body {background-color: gainsboro;  }
-main {background-color: #f7f7f7;  }
+html, body, main, section, div, p {margin:0; padding:0; }
+body {background-color: gainsboro; }
+main {background-color: #efeff2; min-height: 23rem; }
 header {background-color: lightblue;}
 footer {background-color: #ece0d1; text-align: center; }
 nav { display:flex; justify-content: center; }
-select {display: inline-block; min-width: 40%; }
+select {display: inline-block; min-width: 30%; }
 
 a {
     display: block;
