@@ -5,6 +5,7 @@ const pinyin = document.getElementById('pinyin')
 const meaning = document.getElementById('meaning')
 const find = document.getElementById('find')
 const show = document.getElementById('show')
+const out = document.getElementById('output')
 
 let allTab = document.querySelectorAll('a');
 let allSec = document.querySelectorAll('section');
@@ -18,6 +19,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
   document.getElementById("prev").addEventListener('click', (e) => prevChar() )
   document.getElementById("next").addEventListener('click', (e) => nextChar() )
   document.getElementById("find-btn").addEventListener('click', (e) => findChar() )
+  document.getElementById("pinyin-txt").addEventListener('keyup', findPinyin )
+  document.getElementById("meaning-txt").addEventListener('keyup', findMeaning )    
 });
 
 allTab.forEach( el => {
@@ -149,6 +152,19 @@ function findChar() {
     }
   }
 }
+
+function findPinyin (e) {
+	if (this.value) {
+		out.innerText = arr.filter( s => s[2].includes(this.value) ).join('\n')
+	}
+}
+
+function findMeaning (e) {
+	if (this.value) {
+		out.innerText = arr.filter( s => s[3].includes(this.value) ).join('\n')
+	}
+}
+
 
 // eof
 

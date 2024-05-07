@@ -76,6 +76,7 @@ a:active, a:hover {background-color: #fdf5e6; }
     grid-area: c;
     min-height: 22rem;
     background-color: #fdf5e6;
+    font-size: 1.2rem;
 }
 #sels {
     grid-area: 4/1/5/4;

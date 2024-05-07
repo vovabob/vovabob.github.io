@@ -13,14 +13,21 @@
 
 <header>
     <nav id="navbar">
-        <a class="tab" id="viewTab">View</a>
-        <a class="tab" id="queryTab">Search</a>
-        <a class="tab" id="textTab">Text</a>
+        <a class="tab" id="textTab" tabindex="-1">Load</a>
+        <a class="tab" id="viewTab" tabindex="-1">View</a>
+        <a class="tab" id="queryTab" tabindex="-1">Search</a>
     </nav>
 </header>
 
 <main>
-    <section id="view" class="sec">
+
+    <section id="text" class="sec">
+        <button id="load-btn">Fetch </button>
+        <input id="file" size="15" >
+        <div id="show"></div>
+    </section>
+
+    <section id="view" class="sec" style="display:none">
         <div id="panel">
             <div id="char"></div>
             <div id="pinyin"></div>
@@ -41,23 +48,16 @@
 
     <section id="query" class="sec" style="display:none">
     <div id="wrap">
-        <div id="pinyin-qry">
-            <input id="pinyin-txt" size="10">
-            <button id="pinyin-btn"> ? </button>
+        <div id="pinyin-qry">Pinyin: 
+            <input id="pinyin-txt" size="6" tabindex="0">
         </div>
-        <div id="meaning-qry">
-            <input id="meaning-txt" size="10">
-            <button id="meaning-btn"> ? </button>
+        <div id="meaning-qry">Meaning: 
+            <input id="meaning-txt" size="10" tabindex="0">
         </div>            
         <div id="output"></div>
     </div>
     </section>
 
-    <section id="text" class="sec" style="display:none">
-        <button id="load-btn">Load </button>
-        <input id="file" size="15" >
-        <div id="show"></div>
-    </section>
 </main>
 
 <footer><p>Footer</p></footer>
