@@ -6,7 +6,7 @@ const meaning = document.getElementById('meaning')
 const find = document.getElementById('find')
 const show = document.getElementById('show')
 const out = document.getElementById('output')
-
+	
 let allTab = document.querySelectorAll('a');
 let allSec = document.querySelectorAll('section');
 
@@ -14,17 +14,24 @@ let allSec = document.querySelectorAll('section');
 let arr = [];   
 let idx = -1; 
 
-document.addEventListener("DOMContentLoaded", (event) => {
-  document.getElementById("load-btn").addEventListener('click', (e) => loadFile() )
-  document.getElementById("prev").addEventListener('click', (e) => prevChar() )
-  document.getElementById("next").addEventListener('click', (e) => nextChar() )
-  document.getElementById("find-btn").addEventListener('click', (e) => findChar() )
-  document.getElementById("pinyin-txt").addEventListener('keyup', findPinyin )
-  document.getElementById("meaning-txt").addEventListener('keyup', findMeaning )    
+document.addEventListener('DOMContentLoaded', (event) => {
+  document.getElementById('load-btn').addEventListener('click', (e) => loadFile() )
+  document.getElementById('prev').addEventListener('click', (e) => prevChar() )
+  document.getElementById('next').addEventListener('click', (e) => nextChar() )
+  document.getElementById('find-btn').addEventListener('click', (e) => findChar() )
+  document.getElementById('pinyin-txt').addEventListener('keyup', findPinyin )
+  document.getElementById('meaning-txt').addEventListener('keyup', findMeaning )  
+  
+  document.getElementById('char-write').addEventListener('change', (e) =>{ hw.setCharacter(e.target.value || '个') });
+	document.getElementById('play').addEventListener('click', ()=>{ hw.animateCharacter() })
+	document.getElementById('pause').addEventListener('click', ()=>{ hw.pauseAnimation() })
+	document.getElementById('resume').addEventListener('click', ()=>{ hw.resumeAnimation() })
+	document.getElementById('quiz').addEventListener('click', ()=>{ hw.quiz() })
+	document.getElementById('stop').addEventListener('click', ()=>{ hw.cancelQuiz() })  	
 });
 
 allTab.forEach( el => {
-    el.addEventListener("click", e => {
+    el.addEventListener('click', e => {
         openTab(e.target.id.slice(0,-3))
         setColor(e.target.id)
     });
@@ -142,6 +149,7 @@ function findChar() {
         char.innerText = e[0]
         pinyin.innerText = a[i][2]
         meaning.innerText = a[i][3]
+        hw.setCharacter(e[0])
         found = true
       }
     })
@@ -166,6 +174,14 @@ function findMeaning (e) {
 		out.innerText = txt.replace(/,,/g, ', ')
 	}
 }
+
+const hw  = HanziWriter.create('hw', '个', {
+	width: 100,
+	height: 100,
+	padding: 0,
+	radicalColor: '#4169e1',
+	highlightOnComplete: true
+});
 
 
 // eof

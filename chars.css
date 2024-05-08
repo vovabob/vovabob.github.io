@@ -8,6 +8,13 @@ header {background-color: lightblue;}
 footer {background-color: #ece0d1; text-align: center; }
 nav { display:flex; justify-content: center; }
 select {display: inline-block; min-width: 30%; }
+svg {
+	width: 6rem;
+	height: 6rem;
+	display: block; 
+	border: 1px solid black; 
+	margin: 0.5rem auto; 
+}
 
 a {
     display: block;
@@ -84,6 +91,12 @@ a:active, a:hover {background-color: #fdf5e6; }
     padding: 0 0.4rem;
 }
 #meaning-sel {float:right; }
+
+#writer button {
+	display: inline-block; 
+	width:max-content; 
+	font-size:1em; 
+}
 
 @media (min-width: 41rem) {
 	body { 

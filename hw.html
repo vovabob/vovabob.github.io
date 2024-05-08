@@ -4,7 +4,7 @@
 	<title>Hanzi Writer</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />	
-	<script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/hanzi-writer@latest/dist/hanzi-writer.min.js"></script>
 	<style>
 		html { font-size: calc( 1rem + 0vmax ); }	
 		body {background-color:#d2d4dc; box-sizing:border-box; margin:0; } 
@@ -48,9 +48,9 @@
 	document.addEventListener('DOMContentLoaded', ()=>{ charShow.value = ''; charQuiz.value = ''; });
 
 	var hw  = HanziWriter.create('hw', '洪', {
-  		width: 160,
-    	height: 160,
-	  	padding: 8,
+  	width: 160,
+    height: 160,
+	  padding: 8,
 		radicalColor: '#4169e1',
 		highlightOnComplete: true
 	});
@@ -62,7 +62,7 @@
 
 	var hq = HanziWriter.create('hq', '个', {
 		width: 160,
-	    height: 160,
+	  height: 160,
 		padding: 8,
 		radicalColor: '#4169e1', 
 		showCharacter: true,

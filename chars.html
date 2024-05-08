@@ -1,67 +1,80 @@
 <!doctype html>
 <html>
 <head>
-    <title>my.html</title>
-    <meta charset="utf-8">
+	<title>my.html</title>
+	<meta charset="utf-8">
 <!-- Remember to disable 'no-store' on production sites: -->
-    <meta http-equiv="Cache-Control" content="no-store">
+	<meta http-equiv="Cache-Control" content="no-store">
 <!-- ------------------------------------------- -->        
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="chars.css">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<script src="https://cdn.jsdelivr.net/npm/hanzi-writer@latest/dist/hanzi-writer.min.js"></script>  
+	<script src="chars.js" defer ></script>  
+	<link rel="stylesheet" href="chars.css">
 </head>
 <body>
 
 <header>
-    <nav id="navbar">
-        <a class="tab" id="textTab" tabindex="-1">Load</a>
-        <a class="tab" id="viewTab" tabindex="-1">View</a>
-        <a class="tab" id="queryTab" tabindex="-1">Search</a>
-    </nav>
+	<nav id="navbar">
+		<a class="tab" id="textTab" tabindex="-1">Load</a>
+		<a class="tab" id="viewTab" tabindex="-1">View</a>
+		<a class="tab" id="queryTab" tabindex="-1">Search</a>
+	</nav>
 </header>
 
 <main>
 
-    <section id="text" class="sec">
-        <button id="load-btn">Fetch </button>
-        <input id="file" size="15" >
-        <div id="show"></div>
-    </section>
+	<section id="text" class="sec">
+		<button id="load-btn">Fetch </button>
+		<input id="file" size="15" />
+		<div id="show"></div>
+	</section>
 
-    <section id="view" class="sec" style="display:none">
-        <div id="panel">
-            <div id="char"></div>
-            <div id="pinyin"></div>
-            <div id="trad"></div>                    
-            <div id="meaning"></div> 
-            <div id="btns">
-                <button id="prev">Prev</button> 
-                <button id="next">Next</button>                     
-                <button id="find-btn"> Find</button>                
-                <input id="find" size="2rem">
-            </div>
-            <div id="sels">
-                <select id="pinyin-sel" >pinyin</select>
-                <select id="meaning-sel">meaning</select>                
-            </div> 
-        </div>
-    </section>
+	<section id="view" class="sec" style="display:none">
+		<div id="panel">
+			<div id="char"></div>
+			<div id="pinyin"></div>
+			<div id="trad"></div>                    
+			<div id="meaning"></div> 
+			<div id="btns">
+				<button id="prev">Prev</button> 
+				<button id="next">Next</button>                     
+				<button id="find-btn"> Find</button>                
+				<input id="find" size="2rem" />
+			</div>
+			<div id="sels">
+				<select id="pinyin-sel" >pinyin</select>
+				<select id="meaning-sel">meaning</select>                
+			</div> 
+		</div>
+		<div id="writer">
+			<svg xmlns="http://www.w3.org/2000/svg" id="hw">
+			  <line x1="0" y1="0" x2="100" y2="100" stroke="#DDD" />
+			  <line x1="100" y1="0" x2="0" y2="100" stroke="#DDD" />
+			  <line x1="50" y1="0" x2="50" y2="100" stroke="#DDD" />
+			  <line x1="0" y1="50" x2="100" y2="50" stroke="#DDD" />
+			</svg>
+			<input id="char-write" size="2" />
+      <button id="play">Play</button>
+			<button id="pause">Pause</button>
+			<button id="resume">Resume</button>
+			<button id="quiz">Quiz</button>        
+			<button id="stop">Stop</button>  			
+		</div>
+	</section>
 
-    <section id="query" class="sec" style="display:none">
-    <div id="wrap">
-        <div id="pinyin-qry">Pinyin: 
-            <input id="pinyin-txt" size="6" tabindex="0">
-        </div>
-        <div id="meaning-qry">Meaning: 
-            <input id="meaning-txt" size="10" tabindex="0">
-        </div>            
-        <div id="output"></div>
-    </div>
-    </section>
+	<section id="query" class="sec" style="display:none">
+	<div id="wrap">
+			<div id="pinyin-qry">Pinyin: 
+					<input id="pinyin-txt" size="6" tabindex="0" />
+			</div>
+			<div id="meaning-qry">Meaning: 
+					<input id="meaning-txt" size="10" tabindex="0" />
+			</div>            
+			<div id="output"></div>
+	</div>
+	</section>
 
 </main>
-
 <footer><p>Footer</p></footer>
-
-<script src="chars.js"></script>
 </body>
 </html> 
