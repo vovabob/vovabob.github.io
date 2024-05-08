@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Hanzi Writer</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />	
+	<script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
+	<style>
+		html { font-size: calc( 1rem + 0vmax ); }	
+		body {background-color:#d2d4dc; box-sizing:border-box; margin:0; } 
+		main {background-color:#fff0dc; width:24rem; }
+		input {width: 2rem; }
+		strong {color: darkred; }
+		svg {border:1px solid black; margin-top:0.5rem; }
+		button {display: inline-block; width:max-content; font-size:1.2rem; }
+		#chars {background-color:white; width:22rem; padding:0.4rem; border:1px solid; font-size: 1.4rem; } 
+
+		@media (min-width:41rem) {
+			main { margin:auto; }
+
+		}
+	</style>
+</head>
+<body>
+<main>
+	
+	<div id="chars">的 想 动 词 名 叫 意 思 和 个 都 有 没 们 家 少 多 爸 是 医 今 年 岁 他 不 天 时 候 看 坐 打 电 话 喜 欢 朋 友 太 能 影 出 租 作 睡 觉 吃 饭 说 洪子惠</div>
+	<div id="hw"></div>
+	<input id="char-show">
+	<button id="animate">Animate</button>
+	<button id="pause">Pause</button>
+	<button id="resume">Resume</button>
+	<button id="quiz">Quiz</button>
+	<div id="hq"></div>
+	<input id="char-quiz">
+	<button id="show-path">Path</button>
+	<button id="hide-path">noPath</button>
+	<button id="show-char">showChar</button>
+<!--	<button id="hide-char">noChar</button> -->
+	<br>
+	<p><strong>leniency</strong> (мягкость): float, default 1.0.<br> 
+	This can be set to make stroke grading more or less lenient.
+	The closer this is to 0 the more strictly the quiz is graded.</p>
+
+</main>
+
+<script>
+	document.addEventListener('DOMContentLoaded', ()=>{ charShow.value = ''; charQuiz.value = ''; });
+
+	var hw  = HanziWriter.create('hw', '洪', {
+  		width: 160,
+    	height: 160,
+	  	padding: 8,
+		radicalColor: '#4169e1',
+		highlightOnComplete: true
+	});
+
+	document.getElementById('animate').addEventListener('click', ()=>{ hw.animateCharacter(); });
+	document.getElementById('pause').addEventListener('click', ()=>{ hw.pauseAnimation(); });
+	document.getElementById('resume').addEventListener('click', ()=>{ hw.resumeAnimation(); });
+	document.getElementById('quiz').addEventListener('click', ()=>{ hw.quiz(); });
+
+	var hq = HanziWriter.create('hq', '个', {
+		width: 160,
+	    height: 160,
+		padding: 8,
+		radicalColor: '#4169e1', 
+		showCharacter: true,
+		showOutline: true,
+		showHintAfterMisses: 3,
+		highlightOnComplete: true,
+		leniency: 0.7
+	});
+	hq.quiz();
+
+	document.getElementById('show-path').addEventListener('click', () => {hq.showOutline(); hq.quiz() });
+	document.getElementById('hide-path').addEventListener('click', () => {hq.hideOutline(); hq.quiz() });
+	document.getElementById('show-char').addEventListener('click', () => {hq.showCharacter(); hq.quiz() });
+<!--//	document.getElementById('hide-char').addEventListener('click', () => {hq.hideCharacter(); hq.quiz() }); -->
+	
+	const charShow = document.getElementById('char-show');
+	const charQuiz = document.getElementById('char-quiz');
+	charShow.addEventListener('change', () => hw.setCharacter(charShow.value) );
+	charQuiz.addEventListener('change', () => {hq.setCharacter(charQuiz.value); hq.quiz() });
+</script>
+</body>
+</html>
