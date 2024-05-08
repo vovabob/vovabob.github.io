@@ -155,13 +155,15 @@ function findChar() {
 
 function findPinyin (e) {
 	if (this.value) {
-		out.innerText = arr.filter( s => s[2].includes(this.value) ).join('\n')
+		let txt = arr.filter( s => s[2].includes(this.value) ).join('\n')
+		out.innerText = txt.replace(/,,/g, ', ')
 	}
 }
 
 function findMeaning (e) {
 	if (this.value) {
-		out.innerText = arr.filter( s => s[3].includes(this.value) ).join('\n')
+		let txt = arr.filter( s => s[3].includes(this.value) ).join('\n')
+		out.innerText = txt.replace(/,,/g, ', ')
 	}
 }
 
