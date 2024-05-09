@@ -155,8 +155,8 @@ function findChar() {
     })
     if (!found) {
       char.innerText = ''
-      pinyin.innerText = `${val} is not included in the file.`
-      meaning.innerText = 'It\'s either a radical or very common.'
+      pinyin.innerText = `${val} not found.`
+      meaning.innerText = 'It is a Radical, Traditional or too common.'
     }
   }
 }
