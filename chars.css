@@ -8,6 +8,7 @@ header {background-color: lightblue;}
 footer {background-color: #ece0d1; text-align: center; }
 nav { display:flex; justify-content: center; }
 select {display: inline-block; min-width: 30%; }
+
 svg {
 	width: 6rem;
 	height: 6rem;
@@ -17,6 +18,7 @@ svg {
 }
 
 a {
+	pointer-events: none;
     display: block;
     background-color: #d1e7ef;
     text-align: center;
@@ -25,6 +27,8 @@ a {
     margin: 0 0.4rem;
 }
 a:active, a:hover {background-color: #fdf5e6; }
+
+.tab {border:none; outline:none; cursor:pointer; }
 
 #panel {
     display: grid;
@@ -61,10 +65,13 @@ a:active, a:hover {background-color: #fdf5e6; }
     font-size: 1.5rem;
     min-height: 22rem;
 }
-
-#find {margin-left: auto; float: right; }        
-#find-btn {float: right; } 
-.tabs {border:none; outline:none; cursor:pointer; }
+#find {
+	margin-left: auto; 
+	float: right; 
+} 
+#find-btn {
+	float: right; 
+} 
 #wrap {
     display: grid; 
     grid-gap: 0.1rem;
@@ -90,8 +97,9 @@ a:active, a:hover {background-color: #fdf5e6; }
     background-color: #d1e7ef ;
     padding: 0 0.4rem;
 }
-#meaning-sel {float:right; }
-
+#meaning-sel {
+	float:right; 
+}
 #writer button {
 	display: inline-block; 
 	width:max-content; 

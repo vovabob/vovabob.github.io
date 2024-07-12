@@ -1,6 +1,7 @@
 // chars.js 
 
 const char = document.getElementById('char')
+const char2 = document.getElementById('char2')
 const pinyin = document.getElementById('pinyin')
 const meaning = document.getElementById('meaning')
 const find = document.getElementById('find')
@@ -12,22 +13,22 @@ let allSec = document.querySelectorAll('section');
 
 // Keep a copy of 'data' for use with 'prev' & 'next' buttons
 let arr = [];   
-let idx = -1; 
+//let idx = -1; 
+let idx = 0; 
 
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', (e) => {
   document.getElementById('load-btn').addEventListener('click', (e) => loadFile() )
   document.getElementById('prev').addEventListener('click', (e) => prevChar() )
   document.getElementById('next').addEventListener('click', (e) => nextChar() )
   document.getElementById('find-btn').addEventListener('click', (e) => findChar() )
   document.getElementById('pinyin-txt').addEventListener('keyup', findPinyin )
   document.getElementById('meaning-txt').addEventListener('keyup', findMeaning )  
-  
-  document.getElementById('char-write').addEventListener('change', (e) =>{ hw.setCharacter(e.target.value || '个') });
-	document.getElementById('play').addEventListener('click', ()=>{ hw.animateCharacter() })
+	document.getElementById('play-btn').addEventListener('click', play )
 	document.getElementById('pause').addEventListener('click', ()=>{ hw.pauseAnimation() })
 	document.getElementById('resume').addEventListener('click', ()=>{ hw.resumeAnimation() })
 	document.getElementById('quiz').addEventListener('click', ()=>{ hw.quiz() })
-	document.getElementById('stop').addEventListener('click', ()=>{ hw.cancelQuiz() })  	
+	document.getElementById('stop').addEventListener('click', ()=>{ hw.cancelQuiz() })
+	hw.hideCharacter()
 });
 
 allTab.forEach( el => {
@@ -81,6 +82,18 @@ async function loadFile() {
 			txt += val[0]
 		}
 		show.innerText = txt
+
+		// Display the 1st char
+		char.innerText = arr[0][0]
+		trad.innerText = arr[0][1]
+		pinyin.innerText = arr[0][2]
+		meaning.innerText = arr[0][3]	
+		
+		// Re-enable 'click' events on the <a> elements (aka 'tabs')
+		const as = document.getElementsByTagName('a')
+		for (let a of as) {
+			a.style.pointerEvents = 'auto'
+		}
   }
 }
 
@@ -175,7 +188,7 @@ function findMeaning (e) {
 	}
 }
 
-const hw  = HanziWriter.create('hw', '个', {
+const hw  = HanziWriter.create('hw', '一', {
 	width: 100,
 	height: 100,
 	padding: 0,
@@ -183,6 +196,14 @@ const hw  = HanziWriter.create('hw', '个', {
 	highlightOnComplete: true
 });
 
+function play ()  {
+	if ( ! char2.value ) {
+		hw.setCharacter(char.textContent)
+	} else {
+		hw.setCharacter(char2.value)
+	}
+	hw.animateCharacter()
+}
 
 // eof
 
