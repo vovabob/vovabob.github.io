@@ -45,7 +45,7 @@ a:active, a:hover {background-color: #fdf5e6; }
     background-color: #ffebe0; 
     grid-area: 1 / 2 / 2 / 3 ; 
 }
-#trad {
+#alt {
     background-color: #DAE9FA;
     font-size: 3rem; text-align: center;
     grid-area: 1 / 3 / 2 / 4 ;

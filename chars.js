@@ -3,6 +3,7 @@
 const char = document.getElementById('char')
 const char2 = document.getElementById('char2')
 const pinyin = document.getElementById('pinyin')
+const alt = document.getElementById('alt')
 const meaning = document.getElementById('meaning')
 const find = document.getElementById('find')
 const show = document.getElementById('show')
@@ -16,11 +17,12 @@ let arr = [];
 //let idx = -1; 
 let idx = 0; 
 
-document.addEventListener('DOMContentLoaded', (e) => {
-  document.getElementById('load-btn').addEventListener('click', (e) => loadFile() )
-  document.getElementById('prev').addEventListener('click', (e) => prevChar() )
-  document.getElementById('next').addEventListener('click', (e) => nextChar() )
-  document.getElementById('find-btn').addEventListener('click', (e) => findChar() )
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('load-btn').addEventListener('click', loadFile )
+  document.getElementById('file').addEventListener('keyup', e=>{if(e.key==='Enter')loadFile()} )
+  document.getElementById('prev').addEventListener('click', prevChar )
+  document.getElementById('next').addEventListener('click', nextChar )
+  document.getElementById('find-btn').addEventListener('click', findChar )
   document.getElementById('pinyin-txt').addEventListener('keyup', findPinyin )
   document.getElementById('meaning-txt').addEventListener('keyup', findMeaning )  
 	document.getElementById('play-btn').addEventListener('click', play )
@@ -85,14 +87,13 @@ async function loadFile() {
 
 		// Display the 1st char
 		char.innerText = arr[0][0]
-		trad.innerText = arr[0][1]
+		alt.innerText = arr[0][1]
 		pinyin.innerText = arr[0][2]
 		meaning.innerText = arr[0][3]	
 		
-		// Re-enable 'click' events on the <a> elements (aka 'tabs')
-		const as = document.getElementsByTagName('a')
-		for (let a of as) {
-			a.style.pointerEvents = 'auto'
+		// Re-enable 'click' events on all <a> elements (aka 'tabs')
+		for (let t of allTab) {
+			t.style.pointerEvents = 'auto'
 		}
   }
 }
@@ -111,7 +112,7 @@ async function makeOptions(promise, elem) {
     el.innerHTML = s
     el.addEventListener('change', (e) => {
       char.innerText = e.target.value[0] 
-      trad.innerText = e.target.value.split(',')[1]
+      alt.innerText = e.target.value.split(',')[1]
       pinyin.innerText = e.target.value.split(',')[2]
       meaning.innerText = e.target.value.split(',')[3]
       idx = e.target.selectedIndex      
@@ -133,7 +134,7 @@ function prevChar() {
   if (arr[idx-1]) {
     if ( idx <= 0 ) idx = 1;
     char.innerText = arr[idx-1][0]
-    trad.innerText = arr[idx-1][1]    
+    alt.innerText = arr[idx-1][1]    
     pinyin.innerText = arr[idx-1][2]
     meaning.innerText = arr[idx-1][3]
     idx--
@@ -144,7 +145,7 @@ function nextChar() {
   if (arr[idx+1]) {
     if ( idx == arr.length-1) idx = -1;
     char.innerText = arr[idx+1][0]
-    trad.innerText = arr[idx+1][1]    
+    alt.innerText = arr[idx+1][1]    
     pinyin.innerText = arr[idx+1][2]
     meaning.innerText = arr[idx+1][3]
     idx++
@@ -169,7 +170,7 @@ function findChar() {
     if (!found) {
       char.innerText = ''
       pinyin.innerText = `${val} not found.`
-      meaning.innerText = 'It is a Radical, Traditional or too common.'
+      meaning.innerText = 'Not Found.'
     }
   }
 }
@@ -198,7 +199,7 @@ const hw  = HanziWriter.create('hw', '一', {
 
 function play ()  {
 	if ( ! char2.value ) {
-		hw.setCharacter(char.textContent)
+		if (char.textContent) hw.setCharacter(char.textContent)
 	} else {
 		hw.setCharacter(char2.value)
 	}
