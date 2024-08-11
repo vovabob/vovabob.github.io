@@ -1,28 +1,39 @@
 <!doctype html>
-<html lang="en-NZ">
+<html lang="en">
 <head>
 <title>vovabob - Github Pages</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--
 <link href="/css/index.css" rel="stylesheet" title="Default CSS">
+-->
+<link href="/css/dropdown.css" rel="stylesheet" title="Dropdown CSS">
 </head>
 <body>
 <h1>vovabob - Github Pages</h1>
 <div id="div-root">
-<nav>Nav...
-<ul>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-</ul>
+	
+<nav class="navbar">
+	<a href="#">Home</a>
+	<a href="#">About</a>
+	<div class="dropdown">
+		<button class="dropbtn">Dropdown</button>
+		<div class="dropdiv">
+			<a href="#">Link 1</a>
+			<a href="#">Link 2</a>
+			<a href="#">Link 3</a>
+		</div>
+	</div>
 </nav>
+
+
 <main>Main...</main>
 <aside>Aside...</aside>
 </div> <!-- #div-root -->
 <hr>
 <footer><span></span></footer>
-<script src="/js/index.js"></script>
+<!--
+<script src="/js/index.js" defer></script>
+-->
 </body>
 </html>

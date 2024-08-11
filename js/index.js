@@ -14,8 +14,11 @@ let loc = window.location.pathname;
 let dir = loc.substring(0, loc.lastIndexOf('/'));
 
 // Used only once: no need to create VARs for them
-document.querySelector("#head-title").innerHTML = dir;
-document.querySelector("#body-title").innerHTML = dir;
+if ( document.querySelector("#head-title") )
+	document.querySelector("#head-title").innerHTML = dir;
+
+if ( document.querySelector("#body-title") )
+	document.querySelector("#body-title").innerHTML = dir;
 
 let  ul = document.querySelector("#idx");
 let root = 'https://api.github.com/repos/vovabob/vovabob.github.io/contents';

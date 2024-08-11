@@ -1,0 +1,58 @@
+/* dropdown.css */
+
+.navbar {
+  overflow: hidden;
+  background-color: lightgray;
+}
+
+.navbar a {
+  float: left;
+  text-align: center;
+  padding: 0.5rem 0.5rem;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  border: none;
+  outline: none;
+  padding: 0.5rem 0.5rem ;
+  background-color: inherit;
+  font-family: inherit;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: darkgray;
+  color: white;
+}
+
+.dropdiv {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdiv a {
+  float: none;
+  color: black;
+  padding: 0.5rem 0.5rem ;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdiv a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdiv {
+  display: block;
+}
