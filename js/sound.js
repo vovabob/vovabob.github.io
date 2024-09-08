@@ -8,9 +8,6 @@ let playing = document.querySelector("#playing");
 // listener which is triggered by a “click” or “keydown”.
 play.addEventListener("click", async () => 
 	{
-		// See MDN... 
-		const audioCtx = new AudioContext();
-		
 		await Tone.start();
 		console.log("audio is ready");
 		play.style = "display: none";
@@ -19,20 +16,11 @@ play.addEventListener("click", async () =>
 	false
 );
 
-/*
-Tone.start();
-
-let synth = new Tone.Synth({
+const synth = new Tone.Synth({
 	oscillator: {type: "sine"},
 	envelope: {attack: 0, decay: 0, sustain: 1, release: 0},
 	volume: -6
 }).toDestination();
 
 synth.triggerAttackRelease("A4", 2, 0);
-*/
 
-//create a synth and connect it to the main output (your speakers)
-const synth = new Tone.Synth().toDestination();
-
-//play a middle 'C' for the duration of an 8th note
-synth.triggerAttackRelease("C4", "8n");
