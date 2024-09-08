@@ -3,9 +3,14 @@
 let play = document.querySelector("#play");
 let playing = document.querySelector("#playing");
 
-play.addEventListener("click", () => {
+// NB: Browsers will not play any audio until a user clicks something!
+// Run your Tone.js code only after calling Tone.start() from an event 
+// listener which is triggered by a “click” or “keydown”.
+play.addEventListener("click", async () => {
+	await Tone.start();
+	console.log("audio is ready");
 	play.style = "display: none";
-	playing.style = " ";
+	playing.style = " ";	
 });
 
 /*
