@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	document.getElementById('pause').addEventListener('click', ()=>{ hw.pauseAnimation() })
 	document.getElementById('resume').addEventListener('click', ()=>{ hw.resumeAnimation() })
 	document.getElementById('quiz').addEventListener('click', ()=>{ hw.quiz() })
-	document.getElementById('stop').addEventListener('click', ()=>{ hw.cancelQuiz() })
+	document.getElementById('clear').addEventListener('click', ()=>{ hw.hideCharacter(); char2.value = '' })
 	hw.hideCharacter()
 });
 
